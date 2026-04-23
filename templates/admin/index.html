@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Admin Page</h1>
+    <h3>Hi, {{user}}</h3>
+    <p class="d-inline-flex gap-1">
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#pst" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Post
+  </a>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#contact" aria-expanded="false" aria-controls="collapseExample">
+    Contact
+  </button>
+  <a class="btn btn-primary" href="/editpost/0" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add Post
+  </a>
+</p>
+<div class="collapse" id="pst">
+  <div class="card card-body">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">post_id</th>
+      <th scope="col">title</th>
+      <th scope="col">action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for post in posts%}
+    <tr>
+      <th scope="row">{{post.post_id}}</th>
+      <td>{{post.title}}</td>
+      <td>
+        <a href="/editpost/{{post.post_id}}"><button type="button" class="btn btn-info" >Edit</button></a>
+        <a href="/delete/{{post.post_id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+      </td>
+
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+  </div>
+</div>
+    <div class="collapse" id="contact">
+  <div class="card card-body">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">sno</th>
+      <th scope="col">email</th>
+      <th scope="col">action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in contact%}
+    <tr>
+      <th scope="row">{{i.sno}}</th>
+      <td>{{i.email}}</td>
+      <td>
+        <button type="button" class="btn btn-info">Edit</button>
+        <button type="button" class="btn btn-danger">Delete</button>
+      </td>
+
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+  </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

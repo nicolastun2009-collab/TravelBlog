@@ -1,0 +1,9 @@
+{
+  "parameters": {
+    "local_server": false,
+    "local_uri": "mysql://root@localhost/blog",
+    "prod_uri": "postgresql://travel_blog_pr3a_user:OcZ38yTk4a0M59YrzosufQDb1jXz9bAO@dpg-d7juiut7vvec7395om4g-a.virginia-postgres.render.com/travel_blog_pr3a",
+    "title": "Travel Blog",
+    "secret_key": "water"
+  }
+}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title%} Home {% endblock %}
+
+{% block body %}
+<div id="wrapper">
+
+
+					<div id="main">
+
+						{% for i in posts %}
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="post.html">{{i.title}}</a></h2>
+										<p>{{i.location}}</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">{{i.date}}</time>
+										<a href="#" class="author"><span class="name">{{i.author}}</span><img src="images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+								<a href="post.html" class="image featured"><img src="{{i.image}}" alt="" /></a>
+								<p>{{i.subtitle}}</p>
+								<footer>
+									<ul class="actions">
+										<li><a href="/post/{{i.slug}}" class="button large">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+						{% endfor %}
+
+						<ul class="actions pagination">
+								<li><a href="{{prev}}" class="button large previous">Previous Page</a></li>
+								<li><a href="{{next}}" class="button large next">Next Page</a></li>
+							</ul>
+
+
+					</div>
+
+
+
+
+</div>
+{% endblock %}
